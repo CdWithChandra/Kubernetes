@@ -9,9 +9,8 @@ Kubernetes is an open-source platform designed to automate the deployment, scali
 > Before Kubernetes, tools like Docker let you package apps into containers (self-contained units with code, dependencies, and runtime). But managing hundreds or thousands of these containers manually (starting, stopping, scaling) is chaotic. Kubernetes solves that.
 
 ## Core Idea
-Kubernetes treats your app as a set of "Pods" (the smallest deployable units, usually one or more containers).
-
-## It handles:
+Kubernetes treats your app as a set of "Pods" (the smallest deployable units, usually one or more containers).  
+It handles:  
 
 - Deployment: Rolling out your app across a cluster of machines (nodes).
 - Scaling: Automatically adding/removing Pods based on load (e.g., more users = more replicas).
