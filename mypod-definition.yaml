@@ -1,0 +1,21 @@
+
+mypod-definition.yml
+-------------------
+# Pod name: mypods-simple 
+# image name: nginx
+# apiVersion:  Version of the K8 API
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod-simple
+  labels:
+    app: mypod-app
+    type: frontend
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx
+
+ 
+
