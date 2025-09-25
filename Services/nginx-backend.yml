@@ -4,7 +4,6 @@
 #4 Apply/Create Services with "kubectl apply -f <filename>.yaml". 
 
 
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
