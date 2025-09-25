@@ -1,0 +1,22 @@
+
+#Using httpd image - replicates an Apache HTTP server
+
+piVersion: v1
+kind: ReplicationController
+metadata:
+  name: httpd-rc
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: httpd
+  template:
+    metadata:
+      labels:
+        app: httpd
+    spec:
+      containers:
+      - name: httpd-container
+        image: httpd
+        ports:
+        - containerPort: 80
