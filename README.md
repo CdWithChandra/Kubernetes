@@ -6,6 +6,7 @@ Unlock the secrets of Kubernetes with easy-to-follow tutorials, real-world proje
 ## Table of Contents
 
 1. [What is Kubernetes ](#WhatisKubernetes)
+2. [Pods](#Pods)
 
 ## 1. What is Kubernetes {#What is Kubernetes}
 Kubernetes is an open-source platform designed to automate the deployment, scaling, and management of containerized applications.  
@@ -29,7 +30,7 @@ Kubernetes (K8s) handles self-healing (restarting failed Pods), load balancing, 
 
 For more, see the [official Kubernetes intro](https://kubernetes.io/docs/tutorials/kubernetes-basics/).
 
-## Prerequisites
+## 2. Pods {#Pods}
 
 - **Kubernetes Cluster**: Install [Minikube](https://minikube.sigs.k8s.io/docs/start/) for local testing (`minikube start`).
 - **kubectl**: The Kubernetes CLI (comes with Minikube or install via [official docs](https://kubernetes.io/docs/tasks/tools/install-kubectl/)).
