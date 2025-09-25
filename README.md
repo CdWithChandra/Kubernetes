@@ -3,6 +3,8 @@
 Subscribe My YouTube Channel [Easy Beginner Tutorials](https://www.youtube.com/@CodeWith_Chandra)  
 Unlock the secrets of Kubernetes with easy-to-follow tutorials, real-world projects, and insider tips that elevate your coding journey.
 
+## Table of Content
+1. [Pods](#Pods)
 
 ## 1. What is Kubernetes {#What is Kubernetes}
 Kubernetes is an open-source platform designed to automate the deployment, scaling, and management of containerized applications.  
@@ -39,6 +41,6 @@ For more, see the [official Kubernetes intro](https://kubernetes.io/docs/tutoria
 
 1. Start your cluster:  
 
-
+## 1. Pods {#pods}
 
 
