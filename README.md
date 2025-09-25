@@ -37,7 +37,7 @@ For more, see the [official Kubernetes intro](https://kubernetes.io/docs/tutoria
 > This video guide will help you [install Kubernetes on your local machine](https://youtu.be/DR736ESFs_U)  
 
 1. Start your cluster: minikube start
-2. Verify Node is ready: " kubectl get nodes "\
+2. Verify Node is ready: " kubectl get nodes "
 > Ensure your node is marked as ‘Ready’ and verify the Kubernetes and server versions.
 
 
