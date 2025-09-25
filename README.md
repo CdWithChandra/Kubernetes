@@ -14,7 +14,6 @@ These examples assume a local Kubernetes cluster (e.g., Minikube). Apply them wi
 > Before Kubernetes, tools like Docker let you package apps into containers (self-contained units with code, dependencies, and runtime). But managing hundreds or thousands of these containers manually (starting, stopping, scaling) is chaotic. Kubernetes solves that.
 
 ## Why Kubernetes?
-> [!TIP]
 > Kubernetes emerges as the go-to solution by acting as an intelligent orchestrator that automates the entire lifecycle of your apps—from deployment and updates to monitoring and recovery.
 
 Kubernetes (K8s) handles self-healing (restarting failed Pods), load balancing, and portability across environments. Perfect for microservices—from small tests to global services (used by Netflix, Spotify, etc.).
