@@ -5,13 +5,15 @@ Unlock the secrets of Kubernetes with easy-to-follow tutorials, real-world proje
 
 ## Table of Contents
 
-1. [What is Kubernetes](#WhatisKubernetes)
+1. [Pods](#pods)
 2. [ReplicaSet](#replicaset)
 3. [Deployments](#deployments)
 4. [Services](#services)
 5. [Namespaces](#namespaces)
 
-## What is Kubernetes {#WhatisKubernetes}
+## 1. Pods {#Pods}
+
+## What is Kubernetes 
 Kubernetes is an open-source platform designed to automate the deployment, scaling, and management of containerized applications.  
 This repository provides ultra-simple Kubernetes YAML examples to get you started with core concepts like Pods, Replicasets and Deployments (for managing Pods and replicas) and Services (for exposing apps). Designed for absolute beginners—no complex features like volumes or secrets. We'll use a basic nginx web server as the backend to demonstrate deployment, scaling, and access.
 
