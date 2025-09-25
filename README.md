@@ -1,5 +1,5 @@
 # Kubernetes Tutorial (K8s) 2025 🚀 Full Course
-[![Kubernetes](https://img.shields.io/badge/Kubernetes-v1.34-blue?logo=kubernetes)](https://kubernetes.io/docs/home/)
+[![Kubernetes](https://img.shields.io/badge/Kubernetes-v1.34-blue?logo=kubernetes)](https://kubernetes.io/docs/home/)  
 Unlock the secrets of Kubernetes with easy-to-follow tutorials, real-world projects, and insider tips that elevate your coding journey.
 
 ## What is Kubernetes
