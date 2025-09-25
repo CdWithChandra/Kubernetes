@@ -1,0 +1,14 @@
+
+
+# Pod name: hello-world-pod
+# image name: hello-world
+# A simple test image
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-world-pod
+spec:
+  containers:
+  - name: hello-world-container
+    image: hello-world

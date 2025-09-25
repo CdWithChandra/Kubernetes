@@ -1,0 +1,15 @@
+
+# Pod name: httpd-pod
+# image name: httpd
+# Apache HTTP server
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: httpd-pod
+spec:
+  containers:
+  - name: httpd-container
+    image: httpd
+    ports:
+    - containerPort: 80

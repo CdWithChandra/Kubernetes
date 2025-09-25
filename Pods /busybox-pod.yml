@@ -1,0 +1,14 @@
+
+# Pod name: busybox-pod
+# image name: busybox
+# A lightweight multi-tool utility
+
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox-pod
+spec:
+  containers:
+  - name: busybox-container
+    image: busybox

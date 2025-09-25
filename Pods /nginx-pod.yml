@@ -1,0 +1,17 @@
+
+
+# Pod name: nginx-pod
+# image name: nginx
+# A simple web server
+
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod
+spec:
+  containers:
+  - name: nginx-container
+    image: nginx
+    ports:
+    - containerPort: 80

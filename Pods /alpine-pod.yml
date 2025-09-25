@@ -1,0 +1,13 @@
+
+# Pod name: alpine-pod
+# image name: alpine
+# A minimal Linux distribution
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alpine-pod
+spec:
+  containers:
+  - name: alpine-container
+    image: alpine
