@@ -27,10 +27,10 @@ Kubernetes treats your app as a set of "Pods" (the smallest deployable units, us
 - Services: Provide stable networking to Pods on nodes.
 
 ### Visual Simple Analogy
-Cluster = A city (collection of buildings).
-Nodes = Buildings in the city (each can host multiple apartments).
-Pods = Apartments in the buildings (where people/apps live).
-Deployments/Services = City planners and roads (manage and connect the apartments).
+- Cluster = A city (collection of buildings).
+- Nodes = Buildings in the city (each can host multiple apartments).
+- Pods = Apartments in the buildings (where people/apps live).
+- Deployments/Services = City planners and roads (manage and connect the apartments).
 
 ## Why Use Kubernetes?
 > [!TIP]
