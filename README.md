@@ -17,3 +17,20 @@ Kubernetes treats your app as a set of "Pods" (the smallest deployable units, us
 - Self-Healing: If a Pod crashes, it restarts or replaces it automatically.
 - Load Balancing & Discovery: Distributes traffic to healthy Pods and provides stable network access (via Services, like the examples we discussed).
 - Updates: Safely rolling out new versions without downtime.
+
+## Key Components 
+
+- Cluster
+- Nodes
+- Pods
+- ReplicaSets/Deployments
+- Services
+
+## Why Use Kubernetes?
+> [!TIP]
+> Kubernetes emerges as the go-to solution by acting as an intelligent orchestrator that automates the entire lifecycle of your apps—from deployment and updates to monitoring and recovery
+
+- Scalability
+- Portability
+- Efficiency
+- Ecosystem
