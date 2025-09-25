@@ -1,0 +1,26 @@
+
+# Using nginx image - replicates a simple web server
+
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nginx-rs
+  labels:
+    app: myapp
+    type: frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      type: frontend
+
+  template:
+    metadata:
+      name: myapp-rs
+      labels:
+        app: myapp
+        type: frontend
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx

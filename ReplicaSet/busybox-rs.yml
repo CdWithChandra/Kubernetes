@@ -1,0 +1,20 @@
+
+# Using busybox image - replicates a lightweight utility
+
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: busybox-rs
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: busybox
+  template:
+    metadata:
+      labels:
+        app: busybox
+    spec:
+      containers:
+      - name: busybox-container
+        image: busybox
