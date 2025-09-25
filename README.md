@@ -3,13 +3,21 @@
 Subscribe My YouTube Channel [Easy Beginner Tutorials](https://www.youtube.com/@CodeWith_Chandra)  
 Unlock the secrets of Kubernetes with easy-to-follow tutorials, real-world projects, and insider tips that elevate your coding journey.
 
-## What is Kubernetes
+## Table of Contents
+
+1. [What is Kubernetes](#WhatisKubernetes)
+2. [ReplicaSet](#replicaset)
+3. [Deployments](#deployments)
+4. [Services](#services)
+5. [Namespaces](#namespaces)
+
+## What is Kubernetes {#WhatisKubernetes}
 Kubernetes is an open-source platform designed to automate the deployment, scaling, and management of containerized applications.  
 This repository provides ultra-simple Kubernetes YAML examples to get you started with core concepts like Pods, Replicasets and Deployments (for managing Pods and replicas) and Services (for exposing apps). Designed for absolute beginners—no complex features like volumes or secrets. We'll use a basic nginx web server as the backend to demonstrate deployment, scaling, and access.
 
 These examples assume a local Kubernetes cluster (e.g., Minikube).
 
-## Simple Breakdown for Beginners:
+## Simple Breakdown for Beginners
 > [!IMPORTANT]
 > Before Kubernetes, tools like Docker let you package apps into containers (self-contained units with code, dependencies, and runtime). But managing hundreds or thousands of these containers manually (starting, stopping, scaling) is chaotic. Kubernetes solves that.
 
