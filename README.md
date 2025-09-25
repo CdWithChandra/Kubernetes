@@ -3,9 +3,6 @@
 Subscribe My YouTube Channel [Easy Beginner Tutorials](https://www.youtube.com/@CodeWith_Chandra)  
 Unlock the secrets of Kubernetes with easy-to-follow tutorials, real-world projects, and insider tips that elevate your coding journey.
 
-## Table of Content
-1. [Pods](#Pods)
-
 ## 1. What is Kubernetes {#What is Kubernetes}
 Kubernetes is an open-source platform designed to automate the deployment, scaling, and management of containerized applications.  
 This repository provides ultra-simple Kubernetes YAML examples to get you started with core concepts like Pods, Replicasets and Deployments (for managing Pods and replicas) and Services (for exposing apps). Designed for absolute beginners—no complex features like volumes or secrets. We'll use a basic nginx web server as the backend to demonstrate deployment, scaling, and access.
@@ -39,8 +36,9 @@ For more, see the [official Kubernetes intro](https://kubernetes.io/docs/tutoria
 > [!TIP]
 > This video guide will help you [install Kubernetes on your local machine](https://youtu.be/DR736ESFs_U)  
 
-1. Start your cluster:  
+1. Start your cluster: minikube start
+2. Verify Node is ready: " kubectl get nodes "\
+> Ensure your node is marked as ‘Ready’ and verify the Kubernetes and server versions.
 
-## 1. Pods {#pods}
 
 
