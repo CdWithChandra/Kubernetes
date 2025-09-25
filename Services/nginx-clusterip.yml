@@ -1,0 +1,18 @@
+
+# ----------How Top Test-----------
+# Get Service IP: kubectl get svc nginx-clusterip (look for "CLUSTER-IP").
+# From inside the cluster (e.g., exec into another Pod): kubectl run test-pod --image=busybox --rm -it -- sh, then wget -O- nginx-clusterip:80 (should show nginx welcome page).
+# Not accessible from outside the cluster—ideal for backend APIs.
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-clusterip  
+spec:
+  type: ClusterIP  
+  selector:
+    app: nginx  
+  ports:
+  - port: 80  
+    targetPort: 
+    protocol: TCP  # Protocol (default TCP; use UDP if needed). Why? Specifies how traffic is handled.

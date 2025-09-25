@@ -1,0 +1,26 @@
+#1 First, apply a backend like this minimal Deployment.
+#2 (save as nginx-backend.yaml and run "kubectl apply -f nginx-backend.yaml" ).
+#3 This creates 2 nginx Pods labeled app: nginx, running a web server on port 80.
+#4 Apply/Create Services with "kubectl apply -f <filename>.yaml". 
+
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx  # Labels for Service to target these Pods
+    spec:
+      containers:
+      - name: nginx-container
+        image: nginx
+        ports:
+        - containerPort: 80  # Pod listens here (targetPort in Service points to this)
