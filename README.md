@@ -1,10 +1,8 @@
 # Kubernetes Tutorial (K8s) 2025 🚀 Full Course
-
-# Kubernetes
 Unlock the secrets of Kubernetes with easy-to-follow tutorials, real-world projects, and insider tips that elevate your coding journey.
 
 ## What is Kubernetes
-Kubernetes is an open-source platform designed to automate the deployment, scaling, and management of containerized applications. 
+Kubernetes is an open-source platform designed to automate the deployment, scaling, and management of containerized applications.  
 
 ## Simple Breakdown for Beginners:
 > [!IMPORTANT]
