@@ -1,0 +1,14 @@
+
+# This YAML groups configuration settings under namespaces dev, production, and test to represent different environments.
+
+dev:
+  database: dev-db.example.com
+  debug: true
+
+production:
+  database: prod-db.example.com
+  debug: false
+
+test:
+  database: test-db.example.com
+  debug: true

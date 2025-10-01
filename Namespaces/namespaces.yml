@@ -1,0 +1,17 @@
+
+# This YAML creates three Kubernetes namespaces: dev, production, and test. Namespaces help separate resources in different environments.
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dev
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: production
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: test

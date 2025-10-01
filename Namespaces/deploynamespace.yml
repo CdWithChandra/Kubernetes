@@ -1,0 +1,13 @@
+
+# This YAML organizes deployment settings under a top-level namespaces key, with separate settings for dev, production, and test.
+
+namespaces:
+  dev:
+    replicas: 1
+    image: myapp:dev
+  production:
+    replicas: 3
+    image: myapp:latest
+  test:
+    replicas: 2
+    image: myapp:test
