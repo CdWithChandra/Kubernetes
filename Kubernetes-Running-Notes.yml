@@ -1,0 +1,203 @@
+
+# Kubernetes For Beginners -Running Notes!
+
+
+What is Pod?
+  Smallest object that you create in a kubernetes.
+
+Types of Pods?
+  - two types 
+  - single container Pods
+  - multi-container pod 
+
+# - single container Pods
+  spec:
+    containers:
+      - name: nginx-conteiner 
+        image: nginx 
+
+#  - multi-container pod 
+ spec:
+    containers:
+      - name: nginx-conteiner 
+        image: nginx 
+      - name: redis-container 
+        image: redis 
+
+
+Top level of fields or attributes Pod YAML?
+  
+  - apiVersion: v1 
+  - kind: Pod 
+  - metadata: 
+  - spec: 
+
+init vs Multi-Container Pods?
+  - initContainers:
+      - name: download-conifg 
+        image: nginx 
+
+
+Real World Examples with demo
+
+
+Summary Commands:
+  kubectl create -f myapp.yml 
+  kubectl run nginx-pod --image=nginx 
+  kubectl get pods 
+  kubectl describe pod [mypod-pod name]
+  kubectl delete pod [mypod-pod name]
+  kubectl get pods -o wide  
+
+
+Top 10 Essential kuebctl commands For deployments:
+
+kubectl create -f my-app.yml 
+
+kubectl create deployment my-app --image=nginx 
+
+kubectl get deployments -o wide 
+
+kubectl describe deployment my-app 
+
+kubectl rollout status deployment/my-app 
+
+kubectl rollout undo deployment/my-app 
+
+kubectl scale deployment/my-app --replicas=3
+
+kubectl set image deployment/my-app container=my-container:new-image
+
+kubectl expose deployment/my-app --type=LoadBalancer --port=80
+
+kubectl delete deploymnet my-app 
+
+
+# What are init containers - Full Breakdown 
+
+Init containers are powerful feature in Kubernetes that run before your main application containers in a pod, ensuring the
+dependencies are ready. They'r essential for reliable deployments, like setting up simple inital steps or verifying basics.
+
+In this You'll learn:
+---------------------
+
+1. What they are?
+2. How they work?
+3. Simple example with demo
+
+
+1. What are init Containers:
+   init containers are special containers in a pod spec that executes sequentially, before the main containers start.
+
+   they are handling one time setups or tasks sucha as , printing a msg, setting up db before your main containers start.
+
+
+Key features:
+they must complete successfully to proceed the pod.
+Any failures restart the pod 
+
+They run in the main containers, sharing the same storage and network namespace.
+They don't run in parallel, strict order it will executes.
+Supported in Pods, deployments, Statefulset etc.
+
+
+2. How they work?:
+
+Pod phases involved- During the pending phase, init containers run one by one. once all completed/succeeded pod moves to
+running state and starts the main ontainers.
+
+
+Excuttion Flow:
+  Pod creation -> init container1 starts ->success -> init container2 if any ->all done (init containers) -> Main container
+
+
+
+3. Simple example with demo:
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-app-pod 
+spec:
+  initContainers:
+    - name: initial-setup 
+      image: busybox # lightweight image for simple commands 
+      command: ['sh','-c','echo "Setting uo env", sleep 2; echo "Init complete! Starting up main app...";']
+  containers:
+    - name: nginx-container
+      image: nginx 
+      ports:
+        - containerPort: 80
+
+Real - World usecases:
+  Dependency waiting- print status or simulate checks before app startup - it prevents startup failures 
+  Data initialisation - o/p setup confiramtions 
+  Security Checks - Log credential checks or generate simple markers before main containers access them 
+  Testing/Validation - print verification msg on shared volumes.
+
+
+Best Practices:
+  keep lightweight images
+  Error Handling 
+  Security 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
