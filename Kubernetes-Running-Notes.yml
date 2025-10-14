@@ -142,6 +142,64 @@ Best Practices:
   Security 
 
 
+Top 5 Kubernetes Mistakes Beginners Make 
+(And How to Fix Them Fast!)
+----------------------------------------
+
+1. Manual Pod Creation:
+
+   apiVersion: v1
+   kind: Pod
+   metadata:
+     name: my-pod
+   spec:
+     containers:
+       - name: nginx-container
+         image: nginx 
+
+kubectl create deploy mydeploy --image=nginx 
+
+2. Not Using Deployments for ReplicaSets:
+   
+kubectl create deploy mydeploy --image=busybox
+
+
+3. Ignoring Namespaces
+   
+   apiVersion: v1
+   kind: Pod
+   metadata:
+     name: [insert-namespace-name] 
+   
+   or 
+
+kubectl create namespace [insert-namespace-name]
+kubectl delete namespaces [insert-namespace-name]
+
+4. Overlooking Resource Limits:
+    
+    spec:
+      contaienrs:
+        reources: 
+          limits:
+            cpu: "500m" limit cpu to half 
+            memory: "512Mi" limit to 512 mb
+
+
+5. Misconfiguring Networking/Services:
+   
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-bad-service
+spec:
+  selector:
+    app: nginx
+  ports:
+  - protocol: TCP
+    port: 80  # Service port
+  type: ClusterIP  # Wrong for external access;
+
 
 
 
