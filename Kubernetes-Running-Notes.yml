@@ -197,8 +197,110 @@ spec:
     app: nginx
   ports:
   - protocol: TCP
-    port: 80  # Service port
+    port: 80  #  
   type: ClusterIP  # Wrong for external access;
+
+
+
+Kubernetes vs Docker Swarm? Choose the best! 
+
+Intro:
+Which Orchestration tool will supercharge your Python projects and land you that dream job: Kubernetes or Docker Swarm?
+
+
+Here's the break down you can choose the Winner and stay ahed!
+--------------------------------------------------------------
+
+What is Docker Swarm?:
+Docker Swarm is a simple tool for managing Docker containers in a cluster, great for smaller projects.
+
+
+What is Kubernetes?:
+K8 is a Powerful Orchestration tool for managing, scaling and deploing applications, ideal for larger and complex setups.
+
+
+What are the key differences?:
+K8 offers advanced features like autoscaling with Horiontal Pod autoscaler (HPA) while docker Swarm is esaier for beginners.
+For Python projects, Kubernetes handles microservices better, but swarm is quick and esay to setup.
+
+Which to choose? Go with Kubernetes for growth potential, Go with swarm you want simplicity.
+
+
+That's it 
+
+Will see the demo for Docker swarm and Kubernetes:
+
+
+1. Docker Swarm Example (docker-compose.yml):
+
+A simple file to deploy an application 
+
+docker-compose.yml 
+------------------
+version: '3'  # docker compose version 
+services:
+  web:
+    image: my-python-app:latest  # actual image may vary check before using 
+    deploy:
+      replicas: 2    # no of replciacs 
+
+
+Deploy an application:
+
+docker stack deploy -c docker-compose.yml mystack  - for creation 
+
+docker stack ls     - To list 
+docker network ls   - To list networks 
+docker service ls   - To list services 
+
+For removing:
+
+docker stack rm mystack             - To remove stack 
+docker network rm [name-of-network] - To remove network
+docker service rm [name-of-service] - To remvoe service 
+
+
+
+2. Kubernetes Example:
+
+A minimal file to deploy python application
+
+deployment.yml
+--------------
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-python-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: my-container
+        image: nginx
+
+
+Deploy an application: 
+
+kubectl create -f deployment.yml              - for creation 
+kubectl get deploy or kubectl get deployments - To list deployments 
+kubectl describe deploy [name-of-deploy]      - To get addional info 
+kubectl delete deploy [name-of-deploy]        - To delete deployment 
+
+
+
+
+
+
+
+
 
 
 
