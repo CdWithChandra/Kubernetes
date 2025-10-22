@@ -297,14 +297,49 @@ kubectl delete deploy [name-of-deploy]        - To delete deployment
 
 
 
+Master Kubernetes: 1.34 - The Future of Cloud-Native Development!
+-----------------------------------------------------------------
+
+
+Ready to Master let's deploy your first application in minutes 
+
+step 1:
+download Minikube for local kubernetes and start.
+
+step 2:
+Write yaml for deployment our first application
+
+step 3:
+Expose and access your application 
+
+
+video Guide: Limited time, maximum impact
+link - https://youtube.com/shorts/XRBW0-DUMZc
 
 
 
 
+Cost-Effective Kubernetes Strategies for Beginners
+--------------------------------------------------
+
+Struggling with Kubernetes costs as a beginner? Let's slash them without sacrificing performance!
+
+3 Key Strategies to get you started: 
+
+1. Go Managed: Use free tiers of Google Kubernetes Engine (GKE), Amazon EKS, or Azure AKS. 
+They handle infrastructure so you pay only for what you use—no upfront servers!
+
+2. Right-Size Resources: Enable Horizontal Pod Autoscaler (HPA) to scale pods automatically. 
+Use spot instances for non-critical workloads—up to 90% cheaper!
+
+3. Monitor & Optimize: Install free tools like Prometheus or Kubecost to track spending. 
+Delete unused resources and use efficient storage like Persistent Volumes with cheaper classes.
 
 
+Remember, start small—test on a free cluster like Minikube!
 
-
+Demos:
+YAML with commands!
 
 
 
