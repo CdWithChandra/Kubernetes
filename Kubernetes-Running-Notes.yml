@@ -342,7 +342,155 @@ Demos:
 YAML with commands!
 
 
+1. Go Managed: Deploy a Simple App to Leverage Managed Infrastructure
 
+
+nginx-deployment.yaml
+---------------------
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-app
+spec:
+  replicas: 1  # Start small to keep costs low
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:alpine  # Lightweight image to save resources
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  selector:
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer 
+
+
+2. Right-Size Resources: Use Autoscaling to Match Demand
+
+
+autoscaling-app.yaml
+--------------------
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-app
+spec:
+  replicas: 1  # Start with 1 to minimize initial cost
+  selector:
+    matchLabels:
+      app: sample
+  template:
+    metadata:
+      labels:
+        app: sample
+    spec:
+      containers:
+      - name: app
+        image: nginx:alpine  # Simple app; replace with your own
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 100m  # Request minimal CPU
+          limits:
+            cpu: 200m  # Limit to prevent overuse
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: sample-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: sample-app
+  minReplicas: 1
+  maxReplicas: 5
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 50  # Scale up if CPU > 50%
+
+
+3. Monitor & Optimize: Track and Clean Up Unused Resources
+
+monitoring-cleanup.yml
+----------------------
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus
+spec:
+  replicas: 1  # Minimal setup for beginners
+  selector:
+    matchLabels:
+      app: prometheus
+  template:
+    metadata:
+      labels:
+        app: prometheus
+    spec:
+      containers:
+      - name: prometheus
+        image: prom/prometheus:v2.40.0  # Free monitoring tool
+        ports:
+        - containerPort: 9090
+        volumeMounts:
+        - name: config-volume
+          mountPath: /etc/prometheus
+        - name: storage-volume
+          mountPath: /prometheus  # For basic data persistence
+      volumes:
+      - name: config-volume
+        configMap:
+          name: prometheus-config
+      - name: storage-volume
+        emptyDir: {}  # Temporary storage; use PVC for persistence in real setups
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-config
+data:
+  prometheus.yml: |
+    global:
+      scrape_interval: 15s
+    scrape_configs:
+      - job_name: 'kubernetes-pods'
+        kubernetes_sd_configs:
+          - role: pod
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: cleanup-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: cleanup
+        image: busybox  # Lightweight; no kubectl needed here
+        command: ["sh", "-c", "echo 'Simulating cleanup: Checking for unused resources...' && ls /tmp"]  # Simple demo command; replace with real logic if needed
+      restartPolicy: Never
 
 
 
