@@ -494,10 +494,86 @@ spec:
 
 
 
+What Are the Deployment Strategies in K8s
+-----------------------------------------
+Kubernetes deployments? 
+Learn the top strategies in Kubernetes!
+
+Rolling Update: 
+Gradually replace old pods with new ones. 
+Use kubectl set image for zero downtime.
+
+Blue-Green: 
+Run two environments (blue = old, green = new). 
+Switch traffic with a service update.
+
+Canary: 
+Roll out to a small group first. Use labels 
+and selectors to test before full release.
+
+Recreate: 
+Kill all old pods, then create new ones. 
+Simple but causes downtime—use kubectl apply.
 
 
+Demo: Step by step procedure how to execute commands 
 
 
+1. Rolling Update: Gradually replaces old pods with new ones.
+
+# Step 1: Create deployment
+kubectl create deployment web --image=nginx:1.19
+
+# Step 2: Expose service
+kubectl expose deployment web --port=80 --type=NodePort
+
+# Step 3: Check pods
+kubectl get pods -l app=web
+
+# Step 4: Update image (Rolling update)
+kubectl set image deployment/web nginx=nginx:1.21
+
+# Step 5: Watch rollout progress
+kubectl rollout status deployment/web
+
+# Step 6: Verify new version
+kubectl describe deployment web | grep Image
+
+Result: Old pods terminate one by one while new ones start & no downtime.
+
+
+2. Blue-Green Deployment: Run two environments (old=blue, new=green). Switch traffic manually.
+
+# Step 1: Create blue version
+kubectl create deployment web-blue --image=nginx:1.19
+kubectl expose deployment web-blue --port=80 --name=web-service --type=NodePort
+
+# Step 2: Create green version (new version)
+kubectl create deployment web-green --image=nginx:1.21
+
+# Step 3: Test green version
+kubectl port-forward deployment/web-green 8080:80 &
+curl localhost:8080
+
+# Step 4: Switch traffic to green
+kubectl patch service web-service -p '{"spec":{"selector":{"app":"web-green"}}}'
+
+
+3. Canary Deployment: Deploy new version to a small subset first.
+
+# Step 1: Create stable (old) version
+kubectl create deployment web --image=nginx:1.19
+kubectl expose deployment web --port=80 --name=web-svc --type=NodePort
+
+# Step 2: Create canary (new) version with fewer replicas
+kubectl create deployment web-canary --image=nginx:1.21 --replicas=1
+
+# Step 3: Label both deployments to share the same service selector
+kubectl label deployment web app=web --overwrite
+kubectl label deployment web-canary app=web --overwrite
+
+# Step 4: Test traffic (a small portion hits canary)
+minikube service web-svc --url
 
 
 
